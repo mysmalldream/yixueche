@@ -20,7 +20,7 @@ export default [
   {
     path: '/activeManage',component:totalpages,
     children:[
-      { path: ''      , component: activeManage  },
+      { path: '', component: activeManage  },
       {
         path: 'detail', component: detail,
 

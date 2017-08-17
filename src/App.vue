@@ -3,20 +3,78 @@
     <main>
       <!-- 左侧导航 -->
       <div class="main-left">
-        <el-input placeholder="请输入关键字" v-model="filterText">
-        </el-input>   <!-- 搜索框 -->
+  
         <!-- 侧边栏 -->
-        <el-tree class="filter-tree" :data="data2" :props="defaultProps" default-expand-all :filter-node-method="filterNode" ref="tree2">
-        </el-tree>    
+        <el-row class="tac">
+          <el-col :span="25">
+            <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" theme="dark" :router=true  >
+
+              <el-submenu index="1">
+                <template slot="title">学员端管理</template>
+                <el-submenu index="1-4">
+                  <template slot="title">学员信息概览</template>
+                  <el-menu-item index="1-4-1">审核管理</el-menu-item>
+                  <el-menu-item index="1-4-2">学员卡券明细</el-menu-item>
+                  <el-menu-item index="1-4-3">课程报名管理</el-menu-item>
+                </el-submenu>
+              </el-submenu>
+
+              <el-submenu index="2">
+                <template slot="title">教练端管理</template>
+                <el-submenu index="2-4">
+                  <template slot="title">教练信息概览</template>
+                  <el-menu-item index="2-4-1">教练信息详情</el-menu-item>
+                  <el-menu-item index="2-4-2">设置教练级别</el-menu-item>
+                </el-submenu>
+              </el-submenu>
+
+               <el-menu-item index="3">订单管理</el-menu-item>
+              <el-menu-item index="4">佣金设置</el-menu-item>
+
+              <el-submenu index="5">
+                <template slot="title">广告资讯管理</template>
+                  <el-menu-item index="5-4-1">首页banner</el-menu-item>
+                  <el-menu-item index="5-4-2">学车指南</el-menu-item>
+              </el-submenu>
+
+              <el-submenu index="6">
+                <template slot="title">客服管理</template>
+                  <el-menu-item index="6-4-1">常见问题</el-menu-item>
+                  <el-menu-item index="6-4-2">在线反馈</el-menu-item>
+              </el-submenu>
+
+              <el-submenu index="7">
+                <template slot="title">财务管理</template>
+                  <el-menu-item index="7-4-1">教练申请提现</el-menu-item>
+                  <el-menu-item index="7-4-2">教练返佣统计</el-menu-item>
+                  <el-menu-item index="7-4-3">教练返佣明细</el-menu-item>
+                  <el-menu-item index="7-4-4">学员申请提现</el-menu-item>
+                  <el-menu-item index="7-4-5">代理返佣统计</el-menu-item>
+                  <el-menu-item index="7-4-6">代理返佣明细</el-menu-item>
+              </el-submenu>
+
+              <el-submenu index="8">
+                <template slot="title">系统设置</template>
+                  <el-menu-item index="8-4-1">系统消息列表</el-menu-item>
+                  <el-menu-item index="8-4-2">发送新消息</el-menu-item>
+                  <el-menu-item index="8-4-3">用户管理</el-menu-item>
+                  <el-menu-item index="8-4-4">新增用户</el-menu-item>
+                  <el-menu-item index="8-4-5">个人中心</el-menu-item>
+                  <el-menu-item index="8-4-6">密码重置</el-menu-item>
+              </el-submenu>
+
+            </el-menu>
+          </el-col>
+        </el-row>
+  
       </div>
       <!-- 右侧主内容区 -->
       <div class="main-right">
-        1234
-        <!-- <transition name="fade">
-                              <router-view class="view"></router-view>
-                            </transition> -->
+        主页面显示区域(测试)
+        <transition name="fade">
+          <router-view class="view">测试测试</router-view>
+        </transition>
       </div>
-  
     </main>
   </div>
 </template>
@@ -37,142 +95,7 @@ export default {
       active: true,
       headerFixed: true,
       filterText: '',
-      data2: [{
-        id: 1,
-        label: '易学车后台管理系统',
-        children: [
-          {
-            label: '登录'
-          },
-          {
-            id: 2,
-            label: '学员端管理',
-            children: [{
-              id: 3,
-              label: '学员信息概览',
-              children: [{
-                label: '个人信息详情',
-              }, {
-                label: '代理详情',
-              }, {
-                label: '审核管理',
-              }, {
-                label: '学院卡券明细',
-              }, {
-                label: '课程报名管理',
-              }]
-            },
-            {
-              id: 4,
-              label: '约考管理',
-              children: [{
-                label: '约考记录'
-              }, {
-                label: '考试发布'
-              }, {
-                label: '题库管理'
-              }]
-            }
-            ]
-          },
-          {
-            id: 5,
-            label: '教练端管理',
-            children: [{
-              id: 6,
-              label: '教练信息概览',
-              children: [{
-                label: '教练信息详情'
-              }, {
-                label: '设置教练级别'
-              }]
-            }]
-          },
-          {
-            label: '订单管理'
-          },
-          {
-            label: '佣金设置'
-          },
-          {
-            id: 7,
-            label: '广告资讯管理',
-            children: [{
-              label: '首页banner'
-            }, {
-              label: '学车指南'
-            }]
-          },
-          {
-            id: 8,
-            label: '客服管理',
-            children: [{
-              label: '常见问题'
-            }, {
-              label: '在线反馈'
-            }]
-          },
-          {
-            id: 9,
-            label: '财务管理',
-            children: [{
-              id: 10,
-              label: '教练端财务',
-              children: [{
-                label: '教练提现申请',
-              }, {
-                id: 11,
-                label: '教练返佣统计',
-                children: [{
-                  label: '教练返佣明细',
-                }]
-              }]
-            }, {
-              id: 12,
-              label: '学员端财务',
-              children: [{
-                label: '学员提现申请',
-              }, {
-                id: 13,
-                label: '代理返佣统计',
-                children: [{
-                  label: '代理返佣明细',
-                }]
-              }]
-            }]
-          },
-          {
-            id: 13,
-            label: '系统设置',
-            children: [{
-              id: 14,
-              label: '系统消息列表',
-              children: [{
-                label: '发送新消息',
-              }]
-            }, {
-              id: 15,
-              label: '用户管理',
-              children: [{
-                label: '新增用户',
-              }]
-            }, {
-              id: 16,
-              label: '个人中心',
-              children: [{
-                label: '密码重置',
-              }]
-            }]
-          },
-
-        ],
-      }],
-      defaultProps: {
-        children: 'children',
-        label: 'label'
-      }
     };
-
   },
   created: function () {
     this.$router.push('/activePublic');
@@ -181,6 +104,12 @@ export default {
     filterNode(value, data) {
       if (!value) return true;
       return data.label.indexOf(value) !== -1;
+    },
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
     }
   },
   watch: {
@@ -211,22 +140,32 @@ body {
 }
 /* 侧边栏 */
 .el-tree-node__content {
-    line-height: 24px !important;
-    height: 24px !important;
-    cursor: pointer;
+  line-height: 24px !important;
+  height: 24px !important;
+  cursor: pointer;
+}
+main .main-right {
+  padding: 20px !important;
+}
+main .main-left {
+  background-color: #324057 !important; 
+}
+.el-row{
+  margin-top: 20px;
+}
+.el-menu-item, .el-submenu__title{
+      height: 30px !important;
+    line-height: 30px !important;
 }
 
 
-
-
 /* 主内容区 */
-
 main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   min-height: 800px;
-  border: solid 10px #E9ECF1;
+  border: solid 0px #E9ECF1;
   background-color: #FCFCFC;
 }
 
@@ -244,13 +183,12 @@ main .main-right {
   background-color: #fff;
   padding: 50px 70px;
 }
-
-main .el-menu {
-  background-color: transparent!important;
+main .el-menu { 
+  background-color: none ;
 }
-
-
-
+.el-menu--dark{
+  text-align: left;
+}
 
 /*配置路由*/
 
@@ -271,18 +209,13 @@ main .el-menu {
 
 
 
-
-
-
-
-
-
-
 /* 单选框 */
 
 .el-form-item .el-radio+.el-radio {
   margin-left: 30px!important;
 }
+
+
 
 
 /* 路由切换动效 */
@@ -309,6 +242,8 @@ main .el-menu {
 }
 
 
+
+
 /* 导航栏菜单选中效果 */
 
 .isActive {
@@ -318,12 +253,6 @@ main .el-menu {
 #app main .aside .is-active {
   color: #475669;
 }
-
-
-
-
-
-
 
 
 
