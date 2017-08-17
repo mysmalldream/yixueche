@@ -13,9 +13,12 @@
                 <template slot="title">学员端管理</template>
                 <el-submenu index="1-4">
                   <template slot="title">学员信息概览</template>
-                  <el-menu-item index="1-4-1">审核管理</el-menu-item>
-                  <el-menu-item index="1-4-2">学员卡券明细</el-menu-item>
-                  <el-menu-item index="1-4-3">课程报名管理</el-menu-item>
+                  <el-menu-item index="student_manage">审核管理</el-menu-item>
+                  <el-menu-item index="student_coupons">学员卡券明细</el-menu-item>
+                  <el-menu-item index="student_course">课程报名管理</el-menu-item>
+                  <el-menu-item index="student_test">约考记录</el-menu-item>
+                  <el-menu-item index="student_issue">考试发布</el-menu-item>
+                  <el-menu-item index="student_topic">题库管理</el-menu-item>
                 </el-submenu>
               </el-submenu>
 
@@ -70,9 +73,8 @@
       </div>
       <!-- 右侧主内容区 -->
       <div class="main-right">
-        主页面显示区域(测试)
         <transition name="fade">
-          <router-view class="view">测试测试</router-view>
+          <router-view class="view"></router-view>
         </transition>
       </div>
     </main>
@@ -98,7 +100,8 @@ export default {
     };
   },
   created: function () {
-    this.$router.push('/activePublic');
+    // this.$router.push('/activePublic');
+    // this.$router.push('/activePublic');
   },
   methods: {
     filterNode(value, data) {
@@ -168,14 +171,12 @@ main {
   border: solid 0px #E9ECF1;
   background-color: #FCFCFC;
 }
-
 main .main-left {
   text-align: center;
   -webkit-box-flex: 0;
   -ms-flex: 0 0 200px;
   flex: 0 0 200px;
 }
-
 main .main-right {
   -webkit-box-flex: 1;
   -ms-flex: 1;
@@ -190,78 +191,5 @@ main .el-menu {
   text-align: left;
 }
 
-/*配置路由*/
 
-.router-link {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  color: #475669;
-  text-decoration: none;
-}
-
-.is-active .router-link {
-  color: #20a0ff;
-  /* background-color: red ; */
-}
-
-
-
-
-/* 单选框 */
-
-.el-form-item .el-radio+.el-radio {
-  margin-left: 30px!important;
-}
-
-
-
-
-/* 路由切换动效 */
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: all .5s;
-}
-
-.fade-enter,
-.fade-leave-active {
-  opacity: 0;
-}
-
-.list-enter-active,
-.list-leave-active {
-  transition: all 1s;
-}
-
-.list-enter,
-.list-leave-active {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-
-
-
-/* 导航栏菜单选中效果 */
-
-.isActive {
-  color: #20a0ff!important;
-}
-
-#app main .aside .is-active {
-  color: #475669;
-}
-
-
-
-
-
-
-/* 卡片 */
-
-.el-card {
-  overflow: visible!important;
-}
 </style>

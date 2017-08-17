@@ -1,8 +1,7 @@
 <template>
   <div id="hello">
-    <el-button>默认按钮</el-button>
+    学员卡券明细
   </div>
-
 </template>
 
 <script>
